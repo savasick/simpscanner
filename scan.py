@@ -112,7 +112,7 @@ def main():
     known_devices = load_known_devices(known_devices_file)
     internal_ip = get_internal_ip()
     try:
-        print(check_nmap.check_nmap())
+        check_nmap.check_nmap()
         while True:
             print("To stop press CTRL+C")
             print("Your IP:", internal_ip)
