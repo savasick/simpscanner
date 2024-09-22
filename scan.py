@@ -31,7 +31,7 @@ def scan_syn(subnet=None):
     if subnet is None:
         subnet = get_subnet(get_internal_ip())
     
-    command = f'nmap -sn -PS80 {subnet}'
+    command = f'sudo nmap -sn -PS80 {subnet}'
     result = subprocess.check_output(command, shell=True).decode('utf-8')
 
     ip_addresses = re.findall(r'\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b', result)
@@ -112,7 +112,7 @@ def main():
     known_devices = load_known_devices(known_devices_file)
     internal_ip = get_internal_ip()
     try:
-        check_nmap.check_nmap()
+        print(check_nmap.check_nmap())
         while True:
             print("To stop press CTRL+C")
             print("Your IP:", internal_ip)
